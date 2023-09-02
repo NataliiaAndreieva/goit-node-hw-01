@@ -32,8 +32,10 @@ async function removeContact(contactId) {
     return null;
   }
 
-  const deletedContact = contacts.splice(index, 1)[0];
-  await listContacts(contacts);
+    const deletedContact = contacts[index];
+    const newContactList = contacts.filter(contact => contact.id !== contactId);
+
+  await listContacts(newContactList);
 
   return deletedContact;
 }
