@@ -31,7 +31,6 @@ async function removeContact(contactId) {
   if (index === -1) {
     return null;
   }
-
     const deletedContact = contacts[index];
     const newContactList = contacts.filter(contact => contact.id !== contactId);
 
