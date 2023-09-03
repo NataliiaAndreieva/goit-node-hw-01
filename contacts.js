@@ -31,10 +31,10 @@ async function removeContact(contactId) {
   if (index === -1) {
     return null;
   }
-    const deletedContact = contacts[index];
-    const newContactList = contacts.filter(contact => contact.id !== contactId);
-
-  await listContacts(newContactList);
+  const deletedContact = contacts[index];
+  contacts.splice(index, 1);
+    
+  await fs.writeFile(contactsPath, JSON.stringify(data, null, 2));
 
   return deletedContact;
 }
